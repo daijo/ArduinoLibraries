@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004-2006, Swedish Institute of Computer Science.
+ * Copyright (c) 2004-2005, Swedish Institute of Computer Science.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,9 +26,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ * This file is part of the Contiki operating system.
+ *
  * Author: Adam Dunkels <adam@sics.se>
  *
- * $Id: pt.h,v 1.6 2006/06/03 11:29:43 adam Exp $
+ * $Id: pt.h,v 1.7 2006/10/02 07:52:56 adam Exp $
  */
 
 /**
@@ -47,16 +49,16 @@
 #ifndef __PT_H__
 #define __PT_H__
 
-#include "lc.inc"
+#include "lc.h"
 
 struct pt {
   lc_t lc;
 };
 
 #define PT_WAITING 0
-#define PT_EXITED  1
-#define PT_ENDED   2
-#define PT_YIELDED 3
+#define PT_YIELDED 1
+#define PT_EXITED  2
+#define PT_ENDED   3
 
 /**
  * \name Initialization
@@ -85,11 +87,10 @@ struct pt {
  */
 
 /**
- * Declaration of a protothread function.
+ * Declaration of a protothread.
  *
- * This macro is used to declare a protothread function. Protothreads
- * function should be declared with this macro, but can also be
- * declared as regular C functions that return an integer value.
+ * This macro is used to declare a protothread. All protothreads must
+ * be declared with this macro.
  *
  * \param name_args The name and arguments of the C function
  * implementing the protothread.
@@ -267,7 +268,7 @@ struct pt {
  *
  * \hideinitializer
  */
-#define PT_SCHEDULE(f) ((f) == PT_WAITING)
+#define PT_SCHEDULE(f) ((f) < PT_EXITED)
 
 /** @} */
 
