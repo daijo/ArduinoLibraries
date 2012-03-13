@@ -8,16 +8,25 @@
  * SVN Keywords
  * ----------------------------------
  * $Author: cnobile $
- * $Date: 2011-09-17 12:47:57 -0400 (Sat, 17 Sep 2011) $
- * $Revision: 31 $
+ * $Date: 2011-12-07 21:49:14 -0500 (Wed, 07 Dec 2011) $
+ * $Revision: 38 $
  * ----------------------------------
+ *
+ * Thank you to Rowan Simms for pointing out the change in header name with
+ * Arduino version 1.0 and up.
+ *
  */
 
 #ifndef ULTRASONIC_H
 #define ULTRASONIC_H
 
 #include <stddef.h>
-#include <WProgram.h>
+
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include <Arduino.h>
+#else
+  #include <WProgram.h>
+#endif
 
 // Undefine COMPILE_STD_DEV if you don't want Standard Deviation.
 #define COMPILE_STD_DEV

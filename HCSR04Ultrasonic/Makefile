@@ -2,8 +2,8 @@
 # Makefile for the HCSR04Ultrasonic library.
 #
 # $Author: cnobile $
-# $Date: 2011-09-17 14:04:07 -0400 (Sat, 17 Sep 2011) $
-# $Revision: 34 $
+# $Date: 2011-12-07 21:53:24 -0500 (Wed, 07 Dec 2011) $
+# $Revision: 39 $
 #
 
 # Local directory locations.
@@ -14,7 +14,7 @@ TODAY		= $(shell date +"%Y-%m-%d")
 # Current version
 MAJORVERSION    = 1
 MINORVERSION    = 1
-PATCHLEVEL      = 1
+PATCHLEVEL      = 2
 VERSION         = ${MAJORVERSION}.${MINORVERSION}.${PATCHLEVEL}
 
 DISTNAME        = ${PACKAGE_DIR}-$(VERSION)
