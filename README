@@ -1,8 +1,0 @@
-Arduino Libraries
-=================
-
-My Arduino library repository to keep track of the libraries I use.
-
-Todo:
-Write script to sync the repository with the installed Arduino environment.
-Write script to merge changes from a new library version to this repository.
